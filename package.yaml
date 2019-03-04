@@ -1,0 +1,49 @@
+name:                haskell-portfolio
+version:             0.1.0.0
+github:              "waughjai/haskell-portfolio"
+license:             GPL-3
+author:              "Jaimeson Waugh"
+maintainer:          "waughjai@gmail.com"
+copyright:           "2019 Jaimeson Waugh"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/haskell-portfolio#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+
+executables:
+  haskell-portfolio-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - haskell-portfolio
+
+tests:
+  haskell-portfolio-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hspec
+    - haskell-portfolio
